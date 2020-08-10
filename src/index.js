@@ -12,6 +12,10 @@ const publicDirectoryPath = path.join(__dirname, '../public')
 
 app.use(express.static(publicDirectoryPath))
 
+io.on('connection', () => {
+    console.log('New Websocket Connection')
+})
+
 server.listen(port, () => {
     console.log(`App is up on port ${port}!`)
 })
