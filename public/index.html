@@ -6,6 +6,8 @@
 
         <div id="messages"></div>
 
+        <div id="locations"></div>
+
         <form id="message-form">
             <input name="message" id="message" type="text" placeholder="Message">
             <button id="submit" type="submit">Submit</button>
@@ -15,6 +17,12 @@
         <script id="message-template" type="text/html">
             <div>
                 <p>{{message}}</p>
+            </div>
+        </script>
+
+        <script id="location-template" type="text/html">
+            <div>
+                <p><a href="{{location}}" target="_blank">My current location</a></p>
             </div>
         </script>
 
