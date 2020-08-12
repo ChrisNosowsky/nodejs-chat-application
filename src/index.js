@@ -21,16 +21,21 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('message', 'A new user has joined')
 
     socket.on('sendMessage', (msg, callback) => {
+        const filter = Filter()
+        if (filter.isProfane(msg)) {
+            return callback('Profanity is not allowed!')
+        }
         io.emit('message', msg)
-        callback('Delivered')
+        callback()
     })
 
     socket.on('disconnect', () => {
         io.emit('message', 'A user has left!')
     })
 
-    socket.on('sendLocation', (position) => {
+    socket.on('sendLocation', (position, callback) => {
         io.emit('message', `https://google.com/maps?q=${position.latitude},${position.longitude}`)
+        callback()
     })
 })
 
