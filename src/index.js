@@ -21,7 +21,7 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('message', 'A new user has joined')
 
     socket.on('sendMessage', (msg, callback) => {
-        const filter = Filter()
+        const filter = new Filter()
         if (filter.isProfane(msg)) {
             return callback('Profanity is not allowed!')
         }
