@@ -36,7 +36,6 @@ const autoscroll = () => {
 
     if (containerHeight - newMessageHeight <= scrollOffset) {
         $messages.scrollTop = $messages.scrollHeight // max scroll we can go.
-
     }
 
 }
